@@ -454,6 +454,11 @@ export const ROUTES: Routes = [
                 path: 'multi-combobox',
                 loadChildren: () =>
                     import('@fundamental-ngx/docs/core/multi-combobox').then((m) => m.MultiComboboxDocsModule)
+            },
+            {
+                path: 'avatar-group',
+                loadChildren: () =>
+                    import('@fundamental-ngx/docs/core/avatar-group').then((m) => m.AvatarGroupDocsModule)
             }
         ]
     }
