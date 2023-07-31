@@ -1,13 +1,11 @@
 import {
     ChangeDetectionStrategy,
-    ChangeDetectorRef,
     Component,
     ContentChild,
     ContentChildren,
     inject,
     Input,
     QueryList,
-    ViewChild,
     ViewChildren,
     ViewEncapsulation
 } from '@angular/core';
@@ -23,13 +21,14 @@ import {
     FocusableListDirective,
     RtlService
 } from '@fundamental-ngx/cdk/utils';
-import { debounceTime, map, Observable, of, Subscription } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { DialogModule } from '@angular/cdk/dialog';
 import { AvatarGroupItemRendererDirective } from './directives/avatar-group-item-renderer.directive';
 import { AvatarGroupOverflowButtonComponent } from './components/avatar-group-overflow-button.component';
 import { AvatarGroupOverflowButtonDirective } from './directives/avatar-group-overflow-button.directive';
 import { AvatarGroupOverflowBodyDirective } from './directives/avatar-group-overflow-body.directive';
 import { DefaultAvatarGroupOverflowBodyComponent } from './components/default-avatar-group-overflow-body/default-avatar-group-overflow-body.component';
+import { AvatarGroupInternalOverflowButtonDirective } from './directives/avatar-group-internal-overflow-button.directive';
 
 @Component({
     selector: 'fd-avatar-group',
@@ -57,7 +56,8 @@ import { DefaultAvatarGroupOverflowBodyComponent } from './components/default-av
         DialogModule,
         AvatarGroupItemRendererDirective,
         AvatarGroupOverflowButtonComponent,
-        DefaultAvatarGroupOverflowBodyComponent
+        DefaultAvatarGroupOverflowBodyComponent,
+        AvatarGroupInternalOverflowButtonDirective
     ]
 })
 export class AvatarGroupComponent implements AvatarGroupHostConfig {
@@ -100,17 +100,6 @@ export class AvatarGroupComponent implements AvatarGroupHostConfig {
     avatarRenderers: QueryList<AvatarGroupItemRendererDirective>;
 
     /** @hidden */
-    @ViewChild(AvatarGroupHostComponent)
-    set avatarGroupHostComponent(host: AvatarGroupHostComponent) {
-        if (this._avatarGroupHostHiddenItemsSubscription) {
-            this._avatarGroupHostHiddenItemsSubscription.unsubscribe();
-        }
-        this._avatarGroupHostHiddenItemsSubscription = host.hiddenItems$
-            .pipe(debounceTime(100))
-            .subscribe(() => this._cdr.detectChanges());
-    }
-
-    /** @hidden */
     @ContentChildren(AvatarGroupItemDirective)
     avatars: QueryList<AvatarGroupItemDirective>;
 
@@ -126,10 +115,4 @@ export class AvatarGroupComponent implements AvatarGroupHostConfig {
     contentDirection$: Observable<'rtl' | 'ltr'> = (inject(RtlService, { optional: true })?.rtl || of(false)).pipe(
         map((isRtl) => (isRtl ? 'rtl' : 'ltr'))
     );
-
-    /** @hidden */
-    private _cdr = inject(ChangeDetectorRef);
-
-    /** @hidden */
-    private _avatarGroupHostHiddenItemsSubscription: Subscription;
 }
