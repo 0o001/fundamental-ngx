@@ -31,3 +31,4 @@ export * from './clicked';
 export * from './selectable-list';
 export * from './breakpoints/breakpoint.directive';
 export * from './intersection-spy/intersection-spy.directive';
+export * from './resize-observer';
