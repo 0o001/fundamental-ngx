@@ -7,6 +7,12 @@ import { AvatarGroupDocsComponent } from './avatar-group-docs.component';
 import { examples } from './examples';
 import { AvatarGroupModule } from '@fundamental-ngx/core/avatar-group';
 import { AvatarModule } from '@fundamental-ngx/core/avatar';
+import {
+    AvatarGroupFocusableAvatarDirective,
+    AvatarGroupOverflowBodyDirective,
+    AvatarGroupOverflowItemDirective
+} from '@fundamental-ngx/core/legacy-avatar-group';
+import { BarModule, PopoverBodyHeaderDirective, QuickViewModule } from '@fundamental-ngx/core';
 
 const routes: Routes = [
     {
@@ -20,7 +26,18 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes), SharedDocumentationPageModule, AvatarGroupModule, AvatarModule],
+    imports: [
+        RouterModule.forChild(routes),
+        SharedDocumentationPageModule,
+        AvatarGroupModule,
+        AvatarModule,
+        AvatarGroupFocusableAvatarDirective,
+        AvatarGroupOverflowBodyDirective,
+        AvatarGroupOverflowItemDirective,
+        BarModule,
+        PopoverBodyHeaderDirective,
+        QuickViewModule
+    ],
     exports: [RouterModule],
     declarations: [examples, AvatarGroupDocsComponent, AvatarGroupHeaderComponent],
     providers: [currentComponentProvider('avatar-group')]
