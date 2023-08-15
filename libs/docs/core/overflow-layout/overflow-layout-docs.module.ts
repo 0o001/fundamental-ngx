@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AvatarModule } from '@fundamental-ngx/core/avatar';
-import { AvatarGroupModule } from '@fundamental-ngx/core/avatar-group';
+import { AvatarGroupLegacyModule } from '@fundamental-ngx/core/avatar-group-legacy';
 import { BarModule } from '@fundamental-ngx/core/bar';
 import { ButtonModule } from '@fundamental-ngx/core/button';
 import { InfoLabelModule } from '@fundamental-ngx/core/info-label';
@@ -33,7 +33,7 @@ const routes: Routes = [
         SharedDocumentationPageModule,
         OverflowLayoutModule,
         AvatarModule,
-        AvatarGroupModule,
+        AvatarGroupLegacyModule,
         InfoLabelModule,
         ButtonModule,
         PopoverModule,

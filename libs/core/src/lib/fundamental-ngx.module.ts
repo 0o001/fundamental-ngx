@@ -33,7 +33,7 @@ import { PanelModule } from '@fundamental-ngx/core/panel';
 import { ObjectStatusModule } from '@fundamental-ngx/core/object-status';
 import { NotificationModule } from '@fundamental-ngx/core/notification';
 import { AvatarModule } from '@fundamental-ngx/core/avatar';
-import { AvatarGroupModule } from '@fundamental-ngx/core/avatar-group';
+import { AvatarGroupLegacyModule } from '@fundamental-ngx/core/avatar-group-legacy';
 import { BarModule } from '@fundamental-ngx/core/bar';
 import { BusyIndicatorModule } from '@fundamental-ngx/core/busy-indicator';
 import { CardModule } from '@fundamental-ngx/core/card';
@@ -99,7 +99,7 @@ import { MultiComboboxModule } from '@fundamental-ngx/core/multi-combobox';
         ActionBarModule,
         ActionSheetModule,
         AvatarModule,
-        AvatarGroupModule,
+        AvatarGroupLegacyModule,
         BarModule,
         BreadcrumbModule,
         BusyIndicatorModule,
