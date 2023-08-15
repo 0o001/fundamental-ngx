@@ -6,6 +6,7 @@ import { AvatarGroupHeaderComponent } from './avatar-group-header/avatar-group-h
 import { AvatarGroupDocsComponent } from './avatar-group-docs.component';
 import { examples } from './examples';
 import { AvatarGroupModule } from '@fundamental-ngx/core/avatar-group';
+import { AvatarModule } from '@fundamental-ngx/core/avatar';
 
 const routes: Routes = [
     {
@@ -19,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes), SharedDocumentationPageModule, AvatarGroupModule],
+    imports: [RouterModule.forChild(routes), SharedDocumentationPageModule, AvatarGroupModule, AvatarModule],
     exports: [RouterModule],
     declarations: [examples, AvatarGroupDocsComponent, AvatarGroupHeaderComponent],
     providers: [currentComponentProvider('avatar-group')]
