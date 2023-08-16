@@ -1,5 +1,6 @@
 import {
     AfterViewInit,
+    ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     inject,
@@ -7,7 +8,8 @@ import {
     OnDestroy,
     QueryList,
     Renderer2,
-    ViewChildren
+    ViewChildren,
+    ViewEncapsulation
 } from '@angular/core';
 import { NgForOf, NgIf, NgTemplateOutlet } from '@angular/common';
 import { PortalModule } from '@angular/cdk/portal';
@@ -34,11 +36,12 @@ import { PopoverBodyHeaderDirective } from '@fundamental-ngx/core/popover';
     ],
     host: {
         class: 'fd-popover__wrapper',
-        '[style.display]': '"flex"',
-        '[style.flex-direction]': '"column"',
         '[style.max-width.rem]': '20'
     },
-    standalone: true
+    styleUrls: ['./default-avatar-group-overflow-body.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DefaultAvatarGroupOverflowBodyComponent implements AfterViewInit, OnDestroy {
     /** @hidden */
