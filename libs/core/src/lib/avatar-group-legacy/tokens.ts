@@ -9,4 +9,6 @@ export const AVATAR_GROUP_LEGACY_FOCUSABLE_AVATAR_DIRECTIVE = new InjectionToken
     'AvatarGroupLegacyFocusableAvatarDirective'
 );
 
-export const AVATAR_GROUP_LEGACY_COMPONENT = new InjectionToken<AvatarGroupLegacyInterface>('AvatarGroupLegacyComponent');
+export const AVATAR_GROUP_LEGACY_COMPONENT = new InjectionToken<AvatarGroupLegacyInterface>(
+    'AvatarGroupLegacyComponent'
+);

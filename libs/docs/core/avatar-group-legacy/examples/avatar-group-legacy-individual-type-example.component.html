@@ -151,7 +151,9 @@
                 (click)="handleControlClick($event, overflowPopover)"
                 (keydown)="handleControlKeydown($event, overflowPopover)"
             >
-                <bdi fd-avatar-group-legacy-overflow-button-text> +{{ avatarGroup_IndividualType.overflowItemsCount }} </bdi>
+                <bdi fd-avatar-group-legacy-overflow-button-text>
+                    +{{ avatarGroup_IndividualType.overflowItemsCount }}
+                </bdi>
             </button>
         </fd-popover-control>
         <fd-popover-body #overflowPopoverBody aria-labelledby="avatar-group-legacy-0-popover-header" role="tooltip">

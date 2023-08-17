@@ -46,7 +46,9 @@ let avatarGroupCount = 0;
     ],
     standalone: true
 })
-export class AvatarGroupLegacyComponent implements AvatarGroupLegacyInterface, OnChanges, OnInit, AfterViewInit, OnDestroy {
+export class AvatarGroupLegacyComponent
+    implements AvatarGroupLegacyInterface, OnChanges, OnInit, AfterViewInit, OnDestroy
+{
     /** Id of the Avatar Group. */
     @Input()
     id = `fd-avatar-group-legacy-${avatarGroupCount++}`;

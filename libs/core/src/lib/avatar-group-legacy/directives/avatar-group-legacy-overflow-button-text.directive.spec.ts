@@ -3,7 +3,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AvatarGroupLegacyOverflowButtonTextDirective } from './avatar-group-legacy-overflow-button-text.directive';
 
 @Component({
-    template: `<span #directiveElement fd-avatar-group-legacy-overflow-button-text>Avatar Group Overflow Button Text</span>`,
+    template: `<span #directiveElement fd-avatar-group-legacy-overflow-button-text
+        >Avatar Group Overflow Button Text</span
+    >`,
     standalone: true,
     imports: [AvatarGroupLegacyOverflowButtonTextDirective]
 })
