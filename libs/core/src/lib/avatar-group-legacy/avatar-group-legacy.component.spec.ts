@@ -11,6 +11,7 @@ import { AvatarGroupLegacyOverflowButtonDirective } from './directives/avatar-gr
 import { AvatarGroupLegacyOverflowButtonTextDirective } from './directives/avatar-group-legacy-overflow-button-text.directive';
 import { AvatarGroupLegacyOverflowBodyDirective } from './directives/avatar-group-legacy-overflow-body.directive';
 import { AvatarGroupLegacyOverflowItemDirective } from './directives/avatar-group-legacy-overflow-item.directive';
+import { NgForOf, NgIf } from '@angular/common';
 
 const NUMBER_OF_ITEMS = 20;
 
@@ -32,7 +33,9 @@ const NUMBER_OF_ITEMS = 20;
                             fd-avatar-group-legacy-overflow-button
                             [size]="size"
                         >
-                            <bdi fd-avatar-group-legacy-overflow-button-text> +{{ avatarGroup.overflowItemsCount }} </bdi>
+                            <bdi fd-avatar-group-legacy-overflow-button-text>
+                                +{{ avatarGroup.overflowItemsCount }}
+                            </bdi>
                         </button>
                     </fd-popover-control>
 
@@ -60,7 +63,9 @@ const NUMBER_OF_ITEMS = 20;
         AvatarGroupLegacyOverflowButtonDirective,
         AvatarGroupLegacyOverflowButtonTextDirective,
         AvatarGroupLegacyOverflowBodyDirective,
-        AvatarGroupLegacyOverflowItemDirective
+        AvatarGroupLegacyOverflowItemDirective,
+        NgForOf,
+        NgIf
     ]
 })
 class AvatarGroupLegacyTestComponent {
@@ -106,23 +111,33 @@ describe('AvatarGroupLegacyComponent', () => {
     });
 
     it('should assign size class', () => {
-        expect(fixture.nativeElement.querySelector('.fd-avatar-group-legacy').classList).toContain('fd-avatar-group-legacy--s');
+        expect(fixture.nativeElement.querySelector('.fd-avatar-group-legacy').classList).toContain(
+            'fd-avatar-group-legacy--s'
+        );
 
         component.size = 'xs';
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.fd-avatar-group-legacy').classList).toContain('fd-avatar-group-legacy--xs');
+        expect(fixture.nativeElement.querySelector('.fd-avatar-group-legacy').classList).toContain(
+            'fd-avatar-group-legacy--xs'
+        );
 
         component.size = 'm';
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.fd-avatar-group-legacy').classList).toContain('fd-avatar-group-legacy--m');
+        expect(fixture.nativeElement.querySelector('.fd-avatar-group-legacy').classList).toContain(
+            'fd-avatar-group-legacy--m'
+        );
 
         component.size = 'l';
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.fd-avatar-group-legacy').classList).toContain('fd-avatar-group-legacy--l');
+        expect(fixture.nativeElement.querySelector('.fd-avatar-group-legacy').classList).toContain(
+            'fd-avatar-group-legacy--l'
+        );
 
         component.size = 'xl';
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.fd-avatar-group-legacy').classList).toContain('fd-avatar-group-legacy--xl');
+        expect(fixture.nativeElement.querySelector('.fd-avatar-group-legacy').classList).toContain(
+            'fd-avatar-group-legacy--xl'
+        );
     });
 
     it('should hide part of items and display overflow button', () => {
